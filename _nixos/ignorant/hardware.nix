@@ -10,10 +10,9 @@
 in {
   imports = with nixos-hardware.nixosModules; [
     (modulesPath + "/installer/scan/not-detected.nix")
-    common-cpu-amd
-    #common-gpu-amd
-    common-pc
-    common-pc-ssd
+    #common-cpu-amd
+    #common-pc
+    #common-pc-ssd
   ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
@@ -71,6 +70,7 @@ in {
 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["amdgpu" "nvidia" ];
+  hardware.nvidia-container-toolkit.enable = true;
 
   hardware.nvidia = {
 

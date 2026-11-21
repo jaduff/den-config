@@ -6,7 +6,9 @@
     homeManager.home.packages = [ /* ... */ ];
   };
 
-  system.nixos.tags = ["denful"];
+  den.aspects.default.nixos.system.nixos.tags = ["den"];
+  den.aspects.nixpkgs.os.nixpkgs.config.allowUnfree = true;
+  den.schema.host.includes = [den.aspects.nixpkgs];
   # attach it to the host "igloo"
 }
 
