@@ -11,23 +11,32 @@
     system.stateVersion = "21.11";
   };
 
-  den.hosts.x86_64-linux.igloo.users = {
+  den.hosts.x86_64-linux.vm.users = {
     jaduff.classes = [ "hjem" ];
-    nixos.imports = [ ../../_nixos/gnorant/hardware.nix ];
   };
 
   # first: `npins add -n darwin github nix-darwin nix-darwin`
   # den.hosts.aarch64-darwin.apple.users.tux.classes = [ "hjem" ];
 
   # host aspect
-  den.aspects.igloo= {
+  den.aspects.vm= {
     nixos =
       { pkgs, ... }:
       {
+        virtualisation.vmVariant ={
+	  virtualisation = {
+	    memorySize  = 8192;
+	    cores = 8;
+	    graphics = true;
+	  };
+	};
+	users.users.jaduff.initialPassword = "test";
+	security.sudo.wheelNeedsPassword = false;
         environment.systemPackages = [
           pkgs.vim
         ];
       };
+      includes = [den.aspects.apps.firefox den.aspects.desktop.hyprland];
   };
 
 }
