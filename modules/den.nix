@@ -6,6 +6,7 @@
     homeManager.home.packages = [ /* ... */ ];
   };
 
+  system.nixos.tags = ["denful"];
   # attach it to the host "igloo"
 }
 

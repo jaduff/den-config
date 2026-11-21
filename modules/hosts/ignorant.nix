@@ -17,12 +17,19 @@
     nixos =
       { pkgs, ... }:
       {
+	# NETWORKING
+	networking.networkmanager.enable = true;
         system.stateVersion = "21.11";
         environment.systemPackages = [
           pkgs.vim
+	  pkgs.networkmanagerapplet
         ];
       };
-    includes = [ den.aspects.apps.firefox den.aspects.desktop.hyprland];
+    includes = with den.aspects; [ 
+    apps.firefox
+    desktop.hyprland
+    system.boot
+    ];
   };
 
 }
