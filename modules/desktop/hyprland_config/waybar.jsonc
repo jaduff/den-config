@@ -1,0 +1,164 @@
+// ~/.config/waybar/config.jsonc
+// Waybar 0.16.x — JSONC: comments allowed, TRAILING COMMAS ARE NOT.
+// Module reference: https://github.com/Alexays/Waybar/tree/master/man
+{
+  "layer": "top",
+  "position": "top",
+  "height": 32,
+  "spacing": 8,
+
+  // requires matching margin-* in style.css, else the 10px radius is clipped
+  "margin-top": 4,
+  "margin-left": 8,
+  "margin-right": 8,
+  "margin-bottom": 0,
+
+  // keeps the clock optically centred even when left/right differ in width
+  "fixed-center": true,
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+
+  "modules-center": [
+    "clock"
+  ],
+
+  "modules-right": [
+    "tray",
+    "network",
+    "wireplumber",
+    "cpu",
+    "memory"
+  ],
+
+  // ------------------------------------------------------------- workspaces
+  // Addressed as "hyprland/workspaces". format-icons keys are matched as:
+  //   default, active, special, empty, visible, persistent, urgent
+  // plus a numeric key per workspace ID.
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "sort-by-number": true,
+    "disable-scroll": false,
+
+    // always render 5 slots per monitor; without this the module collapses
+    // to however many workspaces happen to exist
+    "persistent-workspaces": {
+      "*": 5
+    },
+
+    "format-icons": {
+      "active": "",
+      "default": "",
+      "urgent": "",
+      "empty": "",
+      "special": "",
+      "visible": ""
+    }
+  },
+
+  // ----------------------------------------------------------- window title
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 60,
+    "separate-outputs": true,
+    "rewrite": {
+      "(.*) — Mozilla Firefox": " $1",
+      "(.*) - Chromium": " $1",
+      "(.*) - kitty": "$1"
+    }
+  },
+
+  // ------------------------------------------------------------------ clock
+  "clock": {
+    "format": "{:%a %d %b  %H:%M}",
+    "format-alt": "{:%Y-%m-%d  %H:%M:%S}",
+    "tooltip": true,
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#33ccff'><b>{}</b></span>",
+        "days": "<span color='#d8dee9'>{}</span>",
+        "weekdays": "<span color='#88c0d0'><b>{}</b></span>",
+        "today": "<span color='#ffb86c'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click": "mode",
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+
+  // ------------------------------------------------------------------- tray
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8,
+    "reverse-direction": false,
+    "show-passive-items": true
+  },
+
+  // ---------------------------------------------------------------- network
+  // `interval` defaults to 60s — this only affects signal-strength polling.
+  "network": {
+    "interval": 5,
+    "format-wifi": "  {essid}",
+    "format-ethernet": "  {ifname}",
+    "format-linked": "  {ifname} (no IP)",
+    "format-disconnected": "  offline",
+    "format-disabled": "  off",
+
+    "tooltip-format": "{ifname}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ifname} · {ipaddr}/{cidr}",
+    "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}\ngw {gwaddr}",
+    "tooltip-format-disconnected": "disconnected",
+    "max-length": 22
+  },
+
+  // ------------------------------------------------------------ wireplumber
+  // format-icons is an ARRAY ordered low→high volume, not an object.
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+    "format-muted": " muted",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ],
+    "tooltip-format": "{node_name}",
+    "scroll-step": 2,
+    "max-volume": 130,
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+
+  // ------------------------------------------------------------------- cpu
+  "cpu": {
+    "interval": 5,
+    "format": " {usage}%",
+    "tooltip": false,
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
+  },
+
+  // ---------------------------------------------------------------- memory
+  "memory": {
+    "interval": 10,
+    "format": " {percentage}%",
+    "tooltip-format": "RAM {used} / {total}\nswap {swapUsed} / {swapTotal}",
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
+  }
+}
+
