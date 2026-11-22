@@ -43,7 +43,7 @@
       "type": "Git",
       "repository": {
         "type": "Forgejo",
-        "server": "https://codeberg.org",
+        "server": "https://codeberg.org/",
         "owner": "viperml",
         "repo": "nix-maid"
       },
@@ -71,6 +71,12 @@
       "revision": "d4636e2adbfff58f0e2cc25e795d9844e7208f65",
       "url": "https://github.com/feel-co/smfh/archive/d4636e2adbfff58f0e2cc25e795d9844e7208f65.tar.gz",
       "hash": "sha256-+Gw0vFNMq8xLNyAiVOAIokFSMAoMpTcBcgq65EgRRW4="
+    },
+    "unstable": {
+      "type": "Channel",
+      "name": "nixos-unstable",
+      "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1125864.2786a2a72088/nixexprs.tar.xz",
+      "hash": "sha256-pAEASBc6wof0S58XcSEdZoQ2iFQDkCnZwH+wFLrkd1Q="
     },
     "with-inputs": {
       "type": "Git",

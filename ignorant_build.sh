@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo nixos-rebuild boot --file . -A flake.nixosConfigurations.ignorant
+sudo nixos-rebuild switch --file . -A flake.nixosConfigurations.ignorant

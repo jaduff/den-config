@@ -3,7 +3,7 @@
   # your reusable package aspect (any file)
   den.aspects.my-packages = {
     nixos.environment.systemPackages = [ /* ... */ ];
-    homeManager.home.packages = [ /* ... */ ];
+    #homeManager.home.packages = [ /* ... */ ];
   };
 
   den.aspects.default.nixos.system.nixos.tags = ["den"];

@@ -13,12 +13,13 @@
     # user configures host <nixos/darwin>.users.users.tux.description
     # Read docs about the `user` class.
     user.description = "Cute Penguin";
+    user.extraGroups = ["wheel" "docker" "networkmanager" "audio"];
 
     # user contributes nixos and darwin common config
     os =
       { pkgs, ... }:
       {
-        environment.systemPackages = [ pkgs.hello ];
+        environment.systemPackages = [ pkgs.vim pkgs.librewolf];
       };
 
     hjem.files.".foo".text = "bar";

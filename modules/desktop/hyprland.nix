@@ -1,5 +1,5 @@
 # modules/desktop/hyprland.nix   (picked up by import-tree)
-{ den, ... }:
+{ den, inputs, ... }:
 {
   den.aspects.jaduff.hjem.xdg.config.files = {
 
@@ -27,8 +27,19 @@
 
   den.aspects.desktop.hyprland = {
     nixos = { pkgs, ... }: {
+       nixpkgs.overlays = [
+         (final: _prev: {
+           unstable = import inputs."unstable" {
+             inherit (final.stdenv.hostPlatform) system;
+             inherit (final) config;
+           };
+         })
+       ];
+   
       programs.hyprland = {
         enable = true;
+	package = pkgs.unstable.hyprland;
+	portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
         withUWSM = true;              # implies programs.uwsm.enable
         xwayland.enable = true;       # already the option default
       };
