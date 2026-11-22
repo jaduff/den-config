@@ -1,18 +1,18 @@
-{ den, ... }:
+{ den, lib, ... }:
 {
-  # your reusable package aspect (any file)
-  den.aspects.my-packages = {
-    nixos.environment.systemPackages = [ /* ... */ ];
-    #homeManager.home.packages = [ /* ... */ ];
+
+  den.default = {
+    nixos.system.nixos.tags = [ "den" ];
+    includes = [
+      den.aspects.tools.git
+      den.aspects.nixpkgs
+    ];
   };
 
-  den.aspects.default.nixos.system.nixos.tags = ["den"];
-  den.aspects.nixpkgs.os.nixpkgs.config.allowUnfree = true;
-  den.aspects.ignorant.includes = with den.aspects; [
-    tools.sudo
+  den.aspects.nixpkgs.nixos.nixpkgs.config.allowUnfree = true;
 
+  den.aspects.ignorant.includes = [
+    den.aspects.tools.sudo
+    den.aspects.tools.git
   ];
-  den.schema.host.includes = [den.aspects.nixpkgs];
-  # attach it to the host "igloo"
 }
-

@@ -19,11 +19,18 @@ local lockCmd     = "hyprlock"
 -- Replace with explicit entries once you know your output names
 -- (`hyprctl monitors | grep '^Monitor'`).
 hl.monitor({
-    output   = "",
+    output   = "HDMI-A-1",
     mode     = "preferred",
     position = "auto",
     scale    = "auto",
 })
+hl.monitor({
+    output   = "HDMI-A-2",
+    position = "auto",
+    scale    = "auto",
+    disabled = true,
+})
+hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
 
 -- Examples, commented:
 -- hl.monitor({ output = "DP-1", mode = "2560x1440@144", position = "0x0",   scale = 1, vrr = 1 })
@@ -105,7 +112,6 @@ hl.config({
     misc = {
         force_default_wallpaper = -1,     -- no anime mascot wallpaper
         disable_hyprland_logo   = true,   -- no login logo either
-        vfr                     = true,
     },
 
     input = {
