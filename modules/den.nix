@@ -3,9 +3,10 @@
 
   den.default = {
     nixos.system.nixos.tags = [ "den" ];
-    includes = [
-      den.aspects.tools.git
-      den.aspects.nixpkgs
+    includes = with den.aspects; [
+      tools.git
+      nixpkgs
+      tools.direnv
     ];
   };
 

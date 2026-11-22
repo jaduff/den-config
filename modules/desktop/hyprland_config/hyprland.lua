@@ -235,8 +235,9 @@ local function resizeBinds()
     hl.bind("left",  hl.dsp.window.resize({ x = -step, y = 0 }))
     hl.bind("up",    hl.dsp.window.resize({ x = 0, y = -step }))
     hl.bind("down",  hl.dsp.window.resize({ x = 0, y =  step }))
-    hl.bind("Return", hl.dsp.submap("default"))
-    hl.bind("Escape", hl.dsp.submap("default"))
+    hl.bind("Return", hl.dsp.submap("reset"))
+    hl.bind("Escape", hl.dsp.submap("reset"))
+    hl.bind("q", hl.dsp.submap("reset"))
 end
 
 hl.define_submap("resize", resizeBinds)
