@@ -12,7 +12,7 @@ creation_rules:
           - *ignorant
           - *carnifex
           - *dingopaw
-  - path_regex: modules/nixos/system/sops-nix/[^/]+\.(yaml|json|env|ini|sops)$
+  - path_regex: modules/tools/sops-nix/[^/]+\.(yaml|json|env|ini|sops)$
     key_groups:
       - age:
           - *jaduff
