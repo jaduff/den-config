@@ -10,7 +10,7 @@ in
 {
   den.aspects.desktop.dms = {
     nixos = {
-      programs.dms-shell = {
+      programs.dux-shell = {
         enable = true; # package defaults to pkgs.dms-shell
 
         systemd = {
@@ -20,15 +20,16 @@ in
         };
 
         # feature toggles (all valid options at nixpkgs 26.05pre980800)
-        enableVPN = true; # this is already the default
-        enableSystemMonitoring = true;
-        enableDynamicTheming = true;
-        enableAudioWavelength = true;
+        # enableVPN = true; # this is already the default
+        # enableSystemMonitoring = true;
+        # enableDynamicTheming = true;
+        # enableAudioWavelength = true;
         # enableCalendarEvents = true;  # pulls in khal
       };
     };
 
-    hjem = _: {
+  };
+    den.aspects.jaduff.hjem = _: {
       # verify Dux still reads config.d/ as a drop-in dir on your version;
       # some releases use ~/.config/DankMaterialShell/ instead of ~/.config/dms/
       files.".config/dms/config.d/00-nix.json" = {
@@ -36,6 +37,5 @@ in
         clobber = true;
       };
     };
-  };
 }
 

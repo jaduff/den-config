@@ -16,13 +16,7 @@
     user.extraGroups = ["wheel" "docker" "networkmanager" "audio"];
 
     # user contributes nixos and darwin common config
-    os =
-      { pkgs, ... }:
-      {
-        environment.systemPackages = [ pkgs.vim pkgs.librewolf];
-      };
 
-    hjem.files.".foo".text = "bar";
   };
 
 }
