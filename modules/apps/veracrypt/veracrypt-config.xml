@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VeraCrypt>
+  <configuration>
+    <config key="SaveHistory">0</config>
+    <config key="WipeCacheOnClose">1</config>
+    <config key="WipeCacheOnAutoDismount">1</config>
+    <config key="WipePasswordCacheOnExit">1</config>
+    <config key="CachePasswordDuringMultipleMount">0</config>
+    <config key="IncludePimInCache">0</config>
+    <config key="TryEmptyPasswordWhenKeyfileUsed">0</config>
+    <config key="DismountOnLogOff">1</config>
+    <config key="ForceAutoDismount">1</config>
+    <config key="DismountOnInactivity">1</config>
+    <config key="MaxVolumeIdleTime">10</config>
+    <config key="DisableScreenProtection">0</config>
+  </configuration>
+</VeraCrypt>

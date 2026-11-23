@@ -22,5 +22,6 @@
     desktop.dms
     desktop.kitty
     apps.telegram-desktop
+    apps.veracrypt
   ];
 }
