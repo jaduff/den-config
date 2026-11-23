@@ -1,13 +1,29 @@
-{ den, ... }:
+{ den, inputs, ... }:
 let
-  niriKdl = ''
-    // Managed declaratively. Runtime fragments live in niri/dms/.
+  # DMS (`dms setup`) writes its runtime fragments here. Our generated config
+  # lives in the nix store, so these MUST NOT be bare relative paths: relative
+  # includes resolve against the *including file's* directory, i.e.
+  # /nix/store/…-niri-config-checked/.
+  #
+  # `~` expansion in include paths requires niri >= 26.04. Check: niri --version
+  # On older niri, drop the tilde and hardcode the real home path instead:
+  #   fragDir = "/home/jaduff/.config/niri/dms";
+  fragDir = "~/.config/niri/dms";
 
-    include optional=true "dms/colors.kdl"
-    include optional=true "dms/layout.kdl"
-    include optional=true "dms/alttab.kdl"
-    include optional=true "dms/windowrules.kdl"
+  # Flip to "" to make missing fragments a hard error while debugging.
+  # Remember to put "optional=true" back, or every build fails until
+  # `dms setup` has been run once on the target machine.
+  optionalFrag = "optional=true";
+
+  niriKdl = ''
+    // Managed declaratively. Runtime fragments live in ~/.config/niri/dms/.
+
+    include ${optionalFrag} "${fragDir}/colors.kdl"
+    include ${optionalFrag} "${fragDir}/layout.kdl"
+    include ${optionalFrag} "${fragDir}/alttab.kdl"
+    include ${optionalFrag} "${fragDir}/windowrules.kdl"
     // Deliberately NOT included: dms/binds.kdl, dms/binds-next.kdl
+    // Keybinds below are the single source of truth; DMS would duplicate them.
 
     input {
         keyboard { xkb { layout "us"; } }
@@ -63,11 +79,12 @@ let
     }
 
     binds {
-        Mod+Return { spawn "ghostty"; }
+        Mod+Return { spawn "kitty"; }
+        Mod+T hotkey-overlay-title="Terminal" { spawn "kitty"; }
         Mod+Q { close-window; }
         Mod+Left  { focus-column-left; }
         Mod+Right { focus-column-right; }
-        Mod+Up    { focus-window-up; }
+        Mod+Up { focus-window-up; }
         Mod+Down  { focus-window-down; }
         Mod+Shift+Left  { move-column-left; }
         Mod+Shift+Right { move-column-right; }
@@ -152,18 +169,25 @@ let
     let src = pkgs.writeText "niri-config.kdl" niriKdl;
     in pkgs.runCommand "niri-config-checked" { nativeBuildInputs = [ pkgs.niri ]; } ''
       niri validate --config ${src}
-      cp ${src} $out
+      install -Dm444 ${src} $out
     '';
 in
 {
   den.aspects.desktop.niri = {
-    nixos = { pkgs, ... }: {
-      programs.niri.enable = true;
+    nixos = { pkgs, ... }:
+      let
+        unstable = import inputs.unstable {
+          inherit (pkgs.stdenv.hostPlatform) system;
+        };
+      in
+      {
+        # pkgs.niri (runtime AND checkedConfig's validator) now comes from unstable.
+        nixpkgs.overlays = [ (final: prev: { niri = unstable.niri; }) ];
 
-      # The aspect owns the user file via hjem, so don't let nixpkgs
-      # generate /etc/xdg/niri/config.kdl as a second source of truth.
-      environment.etc."xdg/niri/config.kdl".enable = false;
-    };
+        programs.niri.enable = true;
+
+        environment.etc."xdg/niri/config.kdl".enable = false;
+      };
 
     hjem = { pkgs, ... }: {
       files.".config/niri/config.kdl" = {

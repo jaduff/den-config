@@ -18,5 +18,6 @@
     desktop.desktop-services
     desktop.niri
     desktop.dms
+    desktop.kitty
   ];
 }

@@ -42,7 +42,6 @@
       };
     includes = with den.aspects; [ 
     apps.firefox
-    desktop.hyprland
     system.boot
     ];
   };
