@@ -12,8 +12,11 @@
 
   den.aspects.nixpkgs.nixos.nixpkgs.config.allowUnfree = true;
 
-  den.aspects.ignorant.includes = [
-    den.aspects.tools.sudo
-    den.aspects.tools.git
+  den.aspects.ignorant.includes = with den.aspects; [
+    tools.sudo
+    tools.git
+    desktop.desktop-services
+    desktop.niri
+    desktop.dms
   ];
 }
