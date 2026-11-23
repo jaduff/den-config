@@ -26,7 +26,8 @@ let
     // Keybinds below are the single source of truth; DMS would duplicate them.
 
     input {
-        keyboard { xkb { layout "us"; } }
+        keyboard { xkb { layout "us"; }
+        }
         touchpad { tap; natural-scroll; }
         focus-follows-mouse max-scroll-amount="30%"
     }
@@ -189,11 +190,11 @@ in
         environment.etc."xdg/niri/config.kdl".enable = false;
       };
 
-    hjem = { pkgs, ... }: {
+  };
+    den.aspects.jaduff.hjem = { pkgs, ... }: {
       files.".config/niri/config.kdl" = {
         source = checkedConfig pkgs;
         clobber = true;
       };
     };
-  };
 }

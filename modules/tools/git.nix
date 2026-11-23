@@ -19,15 +19,12 @@ in
         value = {
           user = {
             inherit (me) name email;
-            signingkey = me.signingKey;
           };
 
           init.defaultBranch = "main";
           pull.rebase = true;
           push.autoSetupRemote = true;
 
-          commit.gpgsign = signCommits;
-          tag.gpgsign = signCommits;
 
           core.whitespace = "trailing-space,space-before-tab";
           safe.directory = [ "~/work/config" ];
