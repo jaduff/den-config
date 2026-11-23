@@ -1,11 +1,10 @@
 { den, ... }:
 {
   den.aspects.apps.telegram-desktop = {
-    meta.description = "Telegram Desktop, installed per user through hjem";
+    meta.description = "Telegram Desktop, installed system wide";
 
-    # Per-user install: lands in hjem.users.<name>.packages
-    hjem = { pkgs, ... }: {
-      packages = [ pkgs.telegram-desktop ];
+    nixos = { pkgs, ... }: {
+      environment.systemPackages = [ pkgs.telegram-desktop ];
 
       # Optional: pre-create Telegram's state directory (~/.local/share/TelegramDesktop)
       # files.".local/share/TelegramDesktop".type = "directory";
