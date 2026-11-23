@@ -7,18 +7,15 @@
       tools.git
       nixpkgs
       tools.direnv
+      cli.vim
+      tools.sudo
+      tools.npins
     ];
   };
 
   den.aspects.nixpkgs.nixos.nixpkgs.config.allowUnfree = true;
 
 
-  den.aspects.default.includes = with den.aspects; [
-    cli.vim
-    tools.sudo
-    tools.npins
-    tools.git
-];
   den.aspects.ignorant.includes = with den.aspects; [
     desktop.desktop-services
     desktop.niri
