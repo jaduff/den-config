@@ -14,6 +14,7 @@
 
   den.aspects.ignorant.includes = with den.aspects; [
     tools.sudo
+    tools.npins
     tools.git
     desktop.desktop-services
     desktop.niri

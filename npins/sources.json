@@ -9,9 +9,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "e8e8de1e32646456cfc613f152175a7a548508ec",
-      "url": "https://github.com/denful/den/archive/e8e8de1e32646456cfc613f152175a7a548508ec.tar.gz",
-      "hash": "sha256-gp7Q7rMEjsqAyW4Uwz+sms8j+XegD5P/lzRCuMW2fNI="
+      "revision": "27efd748801b13f86d49ab77e6d658684348c1fb",
+      "url": "https://github.com/denful/den/archive/27efd748801b13f86d49ab77e6d658684348c1fb.tar.gz",
+      "hash": "sha256-kbhey6X+XXiYGkNAjxKNK7XpQTski/8tStIYaG4nli4="
     },
     "hjem": {
       "type": "Git",
@@ -22,9 +22,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "0290776d1418a475b785c1eacc91f655d11f331b",
-      "url": "https://github.com/feel-co/hjem/archive/0290776d1418a475b785c1eacc91f655d11f331b.tar.gz",
-      "hash": "sha256-SxJl+VllncXrqOv045TulgPHZSEiow7ItsA7GLcJq48="
+      "revision": "414dbed9d65167f7a062d6292fe24eaf3f359ac7",
+      "url": "https://github.com/feel-co/hjem/archive/414dbed9d65167f7a062d6292fe24eaf3f359ac7.tar.gz",
+      "hash": "sha256-m0Dmp18AtrsD+X4HXRQ/jfEU7jg89P+7kjUf+Raz0t0="
     },
     "import-tree": {
       "type": "Git",
@@ -35,29 +35,15 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "205675fa599ff8a74b6c8c2cc5149cdaeac76f5f",
-      "url": "https://github.com/vic/import-tree/archive/205675fa599ff8a74b6c8c2cc5149cdaeac76f5f.tar.gz",
-      "hash": "sha256-4TRO+jUycfR3g4KAbyK0wQEEJ7Xcmid2Ry+tWv4HPLw="
-    },
-    "nix-maid": {
-      "type": "Git",
-      "repository": {
-        "type": "Forgejo",
-        "server": "https://codeberg.org/",
-        "owner": "viperml",
-        "repo": "nix-maid"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "303e67a8c67d1ba1416abd8842d206a57b46f832",
-      "url": "https://codeberg.org/viperml/nix-maid/archive/303e67a8c67d1ba1416abd8842d206a57b46f832.tar.gz",
-      "hash": "sha256-nvybtwQnyGeUbAq/iOMnt0rOGrp8nkyjnZTW9XIsrfI="
+      "revision": "eb1b52eaecc57f7c136d07ae8a93e724dfecac46",
+      "url": "https://github.com/vic/import-tree/archive/eb1b52eaecc57f7c136d07ae8a93e724dfecac46.tar.gz",
+      "hash": "sha256-ljEMTXP/rH0tOvDzc9gzwww6KcHRPRnEHzd9lK48V7s="
     },
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.05pre980800.566acc07c54d/nixexprs.tar.xz",
-      "hash": "sha256-bo9Hbl5yPjDRldsn1Stnbsmn/nPF0cVlowuLSGHduuA="
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1125912.93a9ed0a8660/nixexprs.tar.xz",
+      "hash": "sha256-tFvjrdir1xJuUxdmsv+yK9PiZ4IMnFCeT8z0iayTlso="
     },
     "smfh": {
       "type": "Git",
@@ -68,9 +54,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "d4636e2adbfff58f0e2cc25e795d9844e7208f65",
-      "url": "https://github.com/feel-co/smfh/archive/d4636e2adbfff58f0e2cc25e795d9844e7208f65.tar.gz",
-      "hash": "sha256-+Gw0vFNMq8xLNyAiVOAIokFSMAoMpTcBcgq65EgRRW4="
+      "revision": "d4925faa374651cf2cef35deaf02cb804de5ddeb",
+      "url": "https://github.com/feel-co/smfh/archive/d4925faa374651cf2cef35deaf02cb804de5ddeb.tar.gz",
+      "hash": "sha256-AZJcuJ0bXbV3DDMQ9etZW+v7Vtdm0AVEAi/rxXbKLEo="
     },
     "unstable": {
       "type": "Channel",
@@ -87,9 +73,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "2966b00a8ee1512c67be16452e99ecd7887c48e6",
-      "url": "https://github.com/vic/with-inputs/archive/2966b00a8ee1512c67be16452e99ecd7887c48e6.tar.gz",
-      "hash": "sha256-Y5aKOwIXblMc+FauYfD/ybzjCPWyfEE9RTomYM22mI0="
+      "revision": "7c09a78e2b52d7842fb6bc6ff7fe9a83834a59b2",
+      "url": "https://github.com/vic/with-inputs/archive/7c09a78e2b52d7842fb6bc6ff7fe9a83834a59b2.tar.gz",
+      "hash": "sha256-I779d5t/5NmwtjAAxutoONjD9xG1Rn6IPl+BfbWYIDY="
     }
   },
   "version": 7
