@@ -17,6 +17,9 @@
       { pkgs, ... }:
       {
         imports = [ ../../_nixos/ignorant/default.nix ];
+  time.timeZone = "Australia/Perth";
+  time.hardwareClockInLocalTime = false;
+
 	# NETWORKING
 	networking.networkmanager.enable = true;
 	networking.hostName = "ignorant";

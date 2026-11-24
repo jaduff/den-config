@@ -29,10 +29,6 @@
             # looks for its provider.
             extraPackages = [ pkgs.podman-compose ];
 
-            # DNS between containers on a podman-compose network.
-            # NOTE: on 26.05 this silently does nothing unless
-            # network_config_dir is redirected (see below).
-            defaultNetwork.settings.dns_enabled = lib.mkDefault true;
           };
 
           containers = {
@@ -71,11 +67,6 @@
                 compose_warning_logs = lib.mkDefault false;
               };
 
-              network = {
-                # Workaround for defaultNetwork.settings being written where
-                # podman never reads it (26.05 bug).
-                network_config_dir = lib.mkDefault "/etc/containers/networks";
-              };
             };
           };
         };
