@@ -29,5 +29,6 @@
     ai.ollama
     tools.nvtop
     apps.nextcloud
+    gaming.steam
   ];
 }
