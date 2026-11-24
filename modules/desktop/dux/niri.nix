@@ -80,6 +80,7 @@ let
     }
 
     binds {
+        Mod+Shift+Page_Up { set-window-height "700"; }
         Mod+Return { spawn "kitty"; }
         Mod+T hotkey-overlay-title="Terminal" { spawn "kitty"; }
         Mod+Q { close-window; }
