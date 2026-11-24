@@ -80,10 +80,6 @@ let
     }
 
     binds {
-        Mod+Up { focus-window-up; }
-        Mod+Down  { focus-window-down; }
-        Mod+Ctrl+Up   { move-window-up; }
-        Mod+Ctrl+Down { move-window-down; }
         Mod+Return { spawn "kitty"; }
         Mod+T hotkey-overlay-title="Terminal" { spawn "kitty"; }
         Mod+Q { close-window; }
@@ -93,7 +89,9 @@ let
         Mod+Down  { focus-window-down; }
         Mod+Shift+Left  { move-column-left; }
         Mod+Shift+Right { move-column-right; }
-        Mod+Comma  { consume-window-into-column; }
+        Mod+Ctrl+Up   { move-window-up; }
+        Mod+Ctrl+Down { move-window-down; }
+        Mod+Comma { consume-window-into-column; }
         Mod+Period { expel-window-from-column; }
         Mod+R { switch-preset-column-width; }
         Mod+F { maximize-column; }
