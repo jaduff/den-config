@@ -10,6 +10,7 @@
       cli.vim
       tools.sudo
       tools.npins
+      virtualisation.podman
     ];
   };
 
@@ -23,5 +24,7 @@
     desktop.kitty
     apps.telegram-desktop
     apps.veracrypt
+    ai.ollama
+    ai.oterm
   ];
 }
