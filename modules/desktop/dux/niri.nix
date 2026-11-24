@@ -80,6 +80,10 @@ let
     }
 
     binds {
+        Mod+Up { focus-window-up; }
+        Mod+Down  { focus-window-down; }
+        Mod+Ctrl+Up   { move-window-up; }
+        Mod+Ctrl+Down { move-window-down; }
         Mod+Return { spawn "kitty"; }
         Mod+T hotkey-overlay-title="Terminal" { spawn "kitty"; }
         Mod+Q { close-window; }

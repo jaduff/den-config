@@ -11,6 +11,7 @@
       tools.sudo
       tools.npins
       virtualisation.podman
+      tools.btop
     ];
   };
 
@@ -26,5 +27,6 @@
     apps.veracrypt
     ai.ollama
     tools.nvtop
+    apps.nextcloud
   ];
 }

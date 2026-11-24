@@ -23,5 +23,6 @@
     ];
 
   };
+  den.aspects.ignorant.provides.jaduff.hjem = den.aspects.apps.nextcloud-hjem.hjem;
 
 }
