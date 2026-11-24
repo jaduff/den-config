@@ -12,6 +12,7 @@
       tools.npins
       virtualisation.podman
       tools.btop
+      cli.tmux
     ];
   };
 
