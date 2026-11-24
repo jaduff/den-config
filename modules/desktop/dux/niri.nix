@@ -7,7 +7,7 @@ let
   #
   # `~` expansion in include paths requires niri >= 26.04. Check: niri --version
   # On older niri, drop the tilde and hardcode the real home path instead:
-  #   fragDir = "/home/jaduff/.config/niri/dms";
+  #   fragDir = "/home/<user>/.config/niri/dms";
   fragDir = "~/.config/niri/dms";
 
   # Flip to "" to make missing fragments a hard error while debugging.
@@ -191,7 +191,7 @@ in
       };
 
   };
-    den.aspects.jaduff.hjem = { pkgs, ... }: {
+    den.aspects.desktop.niri.hjem = { pkgs, ... }: {
       files.".config/niri/config.kdl" = {
         source = checkedConfig pkgs;
         clobber = true;

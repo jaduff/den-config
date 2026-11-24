@@ -25,6 +25,5 @@
     apps.telegram-desktop
     apps.veracrypt
     ai.ollama
-    ai.oterm
   ];
 }

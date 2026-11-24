@@ -29,7 +29,7 @@ in
     };
 
   };
-    den.aspects.jaduff.hjem = _: {
+    den.aspects.desktop.dms.hjem = _: {
       # verify Dux still reads config.d/ as a drop-in dir on your version;
       # some releases use ~/.config/DankMaterialShell/ instead of ~/.config/dms/
       files.".config/dms/config.d/00-nix.json" = {

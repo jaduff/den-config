@@ -1,7 +1,7 @@
 # modules/desktop/hyprland.nix   (picked up by import-tree)
 { den, inputs, ... }:
 {
-  den.aspects.jaduff.hjem.xdg.config.files = {
+  den.aspects.desktop.hyprland.hjem.xdg.config.files = {
 
     "hypr/hyprland.lua" = {
       source  = ./hyprland_config/hyprland.lua;

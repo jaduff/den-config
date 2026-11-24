@@ -16,6 +16,11 @@
     user.extraGroups = ["wheel" "docker" "networkmanager" "audio"];
 
     # user contributes nixos and darwin common config
+    includes = with den.aspects; [
+      ai.oterm
+      desktop.niri
+      desktop.dms
+    ];
 
   };
 
