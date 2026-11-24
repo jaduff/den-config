@@ -30,7 +30,6 @@
 	virtualisation.libvirtd.enable = true;
 	#  boot.binfmt.emulatedSystems = ["aarch64-linux"];
         environment.systemPackages = with pkgs; [
-	    networkmanagerapplet
 	    plymouth
 	    kdePackages.breeze-plymouth
 	    dive
