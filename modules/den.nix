@@ -25,5 +25,6 @@
     apps.telegram-desktop
     apps.veracrypt
     ai.ollama
+    tools.nvtop
   ];
 }
