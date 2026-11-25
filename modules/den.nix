@@ -30,5 +30,6 @@
     tools.nvtop
     apps.nextcloud
     gaming.steam
+    apps.libreoffice
   ];
 }
